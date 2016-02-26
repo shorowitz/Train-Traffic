@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <head>
@@ -18,8 +17,12 @@
       </div>
     <% } %>
     <% if (user) {%>
-      <h1>Hello Again</h1>
-      <button><a href="/trains">TRAINS</a></button>
+      <h1>Train Lines</h1>
+      <% for(var i = 0; i < data.length; i++) { %>
+
+             <h2><a href="/trains/<%= data[i].id %>"><%= data[i].name %></a></h2>
+
+         <% } %>
     <% } %>
   </body>
 </html>

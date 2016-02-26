@@ -11,15 +11,13 @@
     <div class="widget">
       <script type="text/javascript" src="http://www.mta.info/sites/all/libraries/mta_WidgetScripts/serviceStatusWidget.js"></script>
     </div>
-    <% if (!(user)) {%>
-      <div class="container">
-        <h1> Welcome! </h1>
-        <p>Sign-In or Sign-up for an account to view minute-by-minute updates at your train stop!</p>
-      </div>
-    <% } %>
     <% if (user) {%>
-      <h1>Hello Again</h1>
-      <button><a href="/trains">TRAINS</a></button>
+      <h1>STOPS</h1>
+      <% for(var i = 0; i < data.length; i++) { %>
+
+             <h2><a href="/trains/stops/<%= data[i].id %>"><%= data[i].name %></a></h2>
+
+         <% } %>
     <% } %>
   </body>
 </html>

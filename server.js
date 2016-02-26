@@ -13,11 +13,14 @@ var session = require('express-session');
 var pgSession = require('connect-pg-simple')(session);
 
 var usersDB = require('./db/users_pg');
+var trainsDB = require('./db/trains_pg')
 var stopsDB = require('./db/stops_pg');
 var app = express();
 
 
 var userRoutes = require(path.join(__dirname, '/routes/users'));
+var trainRoutes = require(path.join(__dirname, '/routes/trains'))
+var stopRoutes = require(path.join(__dirname, '/routes/stops'));
 
 app.use(session({
   store: new pgSession({
@@ -45,6 +48,8 @@ app.set('view engine', 'ejs');
 
 // routes
 app.use('/users', userRoutes);
+app.use('/trains', trainRoutes);
+app.use('/stops',stopRoutes);
 
 app.get('/', function(req, res) {
   res.render('./pages/home.html.ejs', { user : req.session.user});

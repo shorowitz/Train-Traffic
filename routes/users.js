@@ -2,6 +2,7 @@ var express = require('express');
 var users = express.Router();
 var bodyParser = require('body-parser');
 var usersDB = require('../db/users_pg');
+var session = require('express-session');
 
 
 users.post('/', usersDB.createUser, function(req, res){
@@ -21,7 +22,7 @@ users.post('/login', usersDB.loginUser, function(req, res) {
   req.session.user = res.rows
 
   req.session.save(function() {
-    res.redirect('/')
+    res.redirect('/trains')
   });
 })
 
