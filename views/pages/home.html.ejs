@@ -1,24 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Document</title>
-</head>
-<body>
-  <div>
-    <a href="/users/new">Signup</a>
-  </div>
-  <div>
-    <a href="/users/login">Login!</a>
-  </div>
-  <div>
-    <form method="post" action="users/logout?_method=DELETE">
-      <button>logout</button>
-    </form>
-  </div>
-
-  <% if (user) {%>
-    <h3>Welcome <%= user.username %></h3>
-  <% } %>
-</body>
+  <head>
+    <%- include ../partials/head.html.ejs %>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+      <div class="nav">
+        <ul class="nav navbar-nav">
+          <li><a href="/">Home</a></li>
+          <% if (user) {%>
+            <li>Welcome <%= user.email %></li>
+            <li><form method="post" action="users/logout?_method=DELETE">
+              <button>Logout</button>
+            </form></li>
+          <% } %>
+          <% if (!(user)) {%>
+            <li><a href="/users/new">Sign-Up!</a></li>
+            <li><a href="/users/login">Login!</a></li>
+          <% } %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+    </header>
+    <div class="widget">
+      <script type="text/javascript" src="http://www.mta.info/sites/all/libraries/mta_WidgetScripts/serviceStatusWidget.js"></script>
+    </div>
+    <% if (!(user)) {%>
+      <div class="container">
+        <h1> Welcome! </h1>
+        <p>Sign-In or Sign-up for an account to view minute-by-minute updates at your train stop!</p>
+      </div>
+    <% } %>
+    <% if (user) {%>
+      <h1>Train Lines</h1>
+    <% } %>
+  </body>
 </html>

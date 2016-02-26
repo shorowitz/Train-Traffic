@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include ../partials/head.html.ejs %>
+</head>
+<body>
+  <div class="widget">
+    <script type="text/javascript" src="http://www.mta.info/sites/all/libraries/mta_WidgetScripts/serviceStatusWidget.js"></script>
+  </div>
+<h1>Sign Up page!</h1>
+<form action="/users" method="post">
+  <div>
+    <label for="email">email</label>
+    <input type="text" name="email">
+  </div>
+
+  <div>
+    <label for="password">password</label>
+    <input type="password" name="password">
+  </div>
+
+  <input type="submit" value="SuBMit">
+</form>
+</body>
+</html>

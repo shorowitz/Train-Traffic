@@ -59,7 +59,7 @@ function createUser(req, res, next) {
         return res.status(500).json({success: false, data: err})
       }
 
-      var query = client.query("INSERT INTO users( email, password_digest, username) VALUES ($1, $2, $3, $4);", [email, hash, username], function(err, result) {
+      var query = client.query("INSERT INTO users( email, password_digest) VALUES ($1, $2);", [email, hash], function(err, result) {
         done()
         if (err) {
           return console.error('error running query', err)

@@ -1,23 +1,23 @@
 var express = require('express');
 var users = express.Router();
 var bodyParser = require('body-parser');
-var db = require('./../db/users_pg');
+var usersDB = require('../db/users_pg');
 
 
-users.post('/', db.createUser, function(req, res){
+users.post('/', usersDB.createUser, function(req, res){
   res.redirect('/');
 })
 
 // users.route('/')
 users.get('/new', function(req, res) {
-  res.render('users/new.html.ejs')
+  res.render('pages/new.html.ejs')
 })
 
 users.get('/login', function(req, res) {
-  res.render('users/login.html.ejs');
+  res.render('pages/login.html.ejs');
 })
 
-users.post('/login', db.loginUser, function(req, res) {
+users.post('/login', usersDB.loginUser, function(req, res) {
   req.session.user = res.rows
 
   req.session.save(function() {
