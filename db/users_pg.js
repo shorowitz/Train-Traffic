@@ -37,21 +37,21 @@ function loginUser(req, res, next) {
     })
 }
 
-function createSecure(email, password, callback) {
+function createSecure(email, password, username, bio, callback) {
 
   bcrypt.genSalt(function(err, salt) {
     bcrypt.hash(password, salt, function(err, hash) {
 
-      callback(email, hash)
+      callback(email, hash, username, bio)
     })
   })
 }
 
 
 function createUser(req, res, next) {
-  createSecure(req.body.email, req.body.password, saveUser);
+  createSecure(req.body.email, req.body.password, req.body.username, req.body.bio, saveUser);
 
-  function saveUser(email, hash) {
+  function saveUser(email, hash, username, bio) {
     pg.connect(config, function(err, client, done) {
       if (err) {
         done()
@@ -59,7 +59,7 @@ function createUser(req, res, next) {
         return res.status(500).json({success: false, data: err})
       }
 
-      var query = client.query("INSERT INTO users( email, password_digest) VALUES ($1, $2);", [email, hash], function(err, result) {
+      var query = client.query("INSERT INTO users(email, password_digest, username, bio) VALUES ($1, $2, $3, $4);", [email, hash, username, bio], function(err, result) {
         done()
         if (err) {
           return console.error('error running query', err)

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <head>
+    <%- include ../partials/head.html.ejs %>
+  </head>
+  <body>
+    <header>
+      <%- include ../partials/nav.html.ejs %>
+    </header>
+    <div class="widget">
+      <script type="text/javascript" src="http://www.mta.info/sites/all/libraries/mta_WidgetScripts/serviceStatusWidget.js"></script>
+    </div>
+    <% if (user) {%>
+      <h1><%= data[0].name %></h1>
+      <% for(var i = 0; i < data.length; i++) { %>
+            <ul>
+             <li><%= data[i].username %></li>
+             <li><%= data[i].note %></li>
+           </ul>
+         <% } %>
+    <% } %>
+  </body>
+</html>

@@ -48,6 +48,36 @@ function showStops(req,res,next){
   });
 }
 
+function showAllComments(req,res,next){
+  pg.connect(config, function(err, client, done){
+    if(err){
+      done();
+      console.log(err);
+      return res.status(500).json({success: false, data: err});
+    }
+    // console.log(req.session.user)
+    var query = client.query(`SELECT stops.name, users.username, comments.id, comments.note
+      FROM comments
+      INNER JOIN stops
+      ON comments.stop_id = stops.id
+      LEFT JOIN users
+      ON comments.user_id = users.id
+      WHERE stops.id = $1
+      GROUP BY stops.name, users.username, comments.id, comments.note
+      ORDER BY comments.id DESC;`, [req.params.id],
+     function(err, results){
+      done();
+      if(err) {
+       return console.error('error running query', err);
+      }
+      res.rows = results.rows;
+      next();
+    });
+  });
+}
+
+
 
 module.exports.showTrains = showTrains;
 module.exports.showStops = showStops;
+module.exports.showAllComments = showAllComments;
