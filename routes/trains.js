@@ -21,9 +21,11 @@ trains.get('/:id', trainsDB.showStops, function(req,res) {
   res.render('./pages/stops.html.ejs', {user: req.session.user, data: res.rows})
 })
 
-// trains.get('/stops/:id', function(req,res) {
-//   res.render('./pages/showAllComments', {user:req.session.user})
-// })
+trains.get('/stops/:id', trainsDB.showAllComments, function(req,res) {
+  res.render('./pages/comments.html.ejs', {user:req.session.user, data: res.rows})
+})
+
+
 
 
 
