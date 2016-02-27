@@ -24,6 +24,7 @@ CREATE TABLE users (
 
 CREATE TABLE comments (
   id SERIAL PRIMARY KEY UNIQUE,
+  posted TIMESTAMP NOT NULL DEFAULT(transaction_timestamp()),
   note TEXT,
   stop_id INTEGER REFERENCES stops,
   user_id INTEGER REFERENCES users
