@@ -17,13 +17,23 @@ trains.get('/', trainsDB.showTrains, function(req, res) {
   res.render('./pages/trains.html.ejs', {user: req.session.user, data: res.rows})
 })
 
-trains.get('/:id', trainsDB.showStops, function(req,res) {
-  res.render('./pages/stops.html.ejs', {user: req.session.user, data: res.rows})
+
+trains.get('/stops/:id/', trainsDB.showAllComments, function(req, res) {
+  var test= {stops: res.stops};
+  console.log(res.stops + 'in trains.get');
+  res.render('./pages/comments.html.ejs', {user:req.session.user,  stops: res.stops, data: res.rows})
 })
 
-trains.get('/stops/:id', trainsDB.showAllComments, function(req,res) {
-  res.render('./pages/comments.html.ejs', {user:req.session.user, data: res.rows})
+trains.post('/stops/:id', trainsDB.createComment, function(req, res) {
+  var stopID = req.params.id;
+  res.redirect('/stops/' + stopID +'/new')
 })
+
+
+trains.get('/:id', trainsDB.showStops, function(req, res) {
+  res.render('./pages/stops.html.ejs', {user: req.session.user, data: res.rows})
+})
+// trains.get('/stops/:id/new', )
 
 
 

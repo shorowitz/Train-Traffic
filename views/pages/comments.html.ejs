@@ -11,15 +11,36 @@
     <div class="widget">
       <script type="text/javascript" src="http://www.mta.info/sites/all/libraries/mta_WidgetScripts/serviceStatusWidget.js"></script>
     </div>
-    <% if (user) {%>
+    <% if (data.length !== 0) {%>
       <h1><%= data[0].name %></h1>
       <% for(var i = 0; i < data.length; i++) { %>
+          <div id="comments" class="container">
             <ul>
              <li><%= data[i].username %></li>
              <li><%= data[i].note %></li>
              <li><%= data[i].posted %></li>
            </ul>
+         </div>
          <% } %>
-    <% } %>
+         <form action="/trains/stops/<%=data[0].id%>" method="post">
+           <div>
+             <label for="note">Comment</label>
+             <input type="text" name="note">
+             <label for="submit">Submit</label>
+             <button id="submit" type="submit" >Submit!</button>
+          </div>
+        </form>
+
+      <% } else { %>
+         <h1><%=stops[0].name %></h1>
+           <form action="/trains/stops/<%=stops[0].id %>" method="post">
+                <div>
+                  <label for="note">Comment</label>
+                  <input type="text" name="note">
+                  <label for="submit">Submit</label>
+                  <button id="submit" type="submit" >Submit!</button>
+               </div>
+             </form>
+         <% } %>
   </body>
 </html>
