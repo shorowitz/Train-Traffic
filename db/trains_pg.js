@@ -56,13 +56,13 @@ function showAllComments(req,res,next){
       return res.status(500).json({success: false, data: err});
     }
     // console.log(req.session.user)
-    var query = client.query(`SELECT stops.name, users.username, comments.id, comments.note
+    var query = client.query(`SELECT stops.name, users.username, comments.id, comments.note, comments.posted
       FROM comments
       INNER JOIN stops
       ON comments.stop_id = stops.id
       LEFT JOIN users
       ON comments.user_id = users.id
-      WHERE stops.id = $1
+      WHERE stops.id = 1
       GROUP BY stops.name, users.username, comments.id, comments.note
       ORDER BY comments.id DESC;`, [req.params.id],
      function(err, results){
