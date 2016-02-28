@@ -15,7 +15,7 @@
           <ul class="nav navbar-nav">
             <li><a href="/">Home</a></li>
             <% if (user) {%>
-              <li>Welcome <%= user.email %></li>
+              <li>Welcome <%= user.username %></li>
               <li><form method="post" action="users/logout?_method=DELETE">
                 <button>Logout</button>
               </form></li>

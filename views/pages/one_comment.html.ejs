@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <head>
+    <%- include ../partials/head.html.ejs %>
+  </head>
+  <body>
+    <header>
+      <%- include ../partials/nav.html.ejs %>
+    </header>
+    <div class="widget">
+      <script type="text/javascript" src="http://www.mta.info/sites/all/libraries/mta_WidgetScripts/serviceStatusWidget.js"></script>
+    </div>
+      <h1><%= data[0].name %></h1>
+      <ul>
+        <li><%= data[0].username %></li>
+        <li><%= data[0].note %></li>
+        <li><%= data[0].posted %></li>
+      </ul>
+      <button><a href="/trains/stops/<%= data[0].stop_id %>">POST IT!</a></button>
+      <form action="/trains/stops/new/<%=data[0].id%>?_method=PUT" method="post">
+           <div>
+             <label for="note">Comment</label>
+             <input type="text" name="note" value="<%=data[0].note %>">
+             <label for="submit">Submit</label>
+             <button id="submit" type="submit" >Submit Edit!</button>
+          </div>
+      </form>
+      <form action="/trains/stops/new/<%=data[0].id%>?_method=DELETE" method="post">
+           <div>
+             <label for="submit">Submit</label>
+             <button id="submit" type="submit" > DELETE!</button>
+          </div>
+      </form>
+      
+
+  </body>
+</html>
