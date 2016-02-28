@@ -4,13 +4,18 @@
   <head>
     <%- include ../partials/head.html.ejs %>
   </head>
-  <body>
     <header>
       <%- include ../partials/nav.html.ejs %>
     </header>
-    <div class="widget">
-      <script type="text/javascript" src="http://www.mta.info/sites/all/libraries/mta_WidgetScripts/serviceStatusWidget.js"></script>
+    <body>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="widget">
+          <script type="text/javascript" src="http://www.mta.info/sites/all/libraries/mta_WidgetScripts/serviceStatusWidget.js"></script>
+        </div>
+      </div>
     </div>
+
     <% if (!(user)) {%>
       <div class="container">
         <h1> Welcome! </h1>

@@ -1,30 +1,23 @@
+<nav class="navbar navbar-inverse">
+  <div class="container navbar">
+    <ul class="navigation">
+      <li class="home"><a href="/">TRAIN TRAFFIC</a><li>
+          <% if (user) {%>
+            <li><a>Welcome, <%= user.username %> !</a></li>
+            <li>
+              <a>
+                <form method="post" action="/users/logout?_method=DELETE" class="form-horizontal">
+                  <button type="submit" class="btn btn-default">Logout</button>
+                </form>
+              </a>
+            </li>
+          <% } %>
 
-<nav class="navbar">
-
-<div class="container">
-        <!-- <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button> -->
-          <a class="navbar-brand" href="#">TRAIN TRAFFIC</a>
-        </div>
-        <div class="nav">
-          <ul class="nav navbar-nav">
-            <li><a href="/">Home</a></li>
-            <% if (user) {%>
-              <li>Welcome <%= user.username %></li>
-              <li><form method="post" action="users/logout?_method=DELETE">
-                <button>Logout</button>
-              </form></li>
-            <% } %>
-            <% if (!(user)) {%>
-              <li><a href="/users/new">Sign-Up!</a></li>
-              <li><a href="/users/login">Login!</a></li>
-            <% } %>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
+        <% if (!(user)) {%>
+            <li><a href="/users/new">Sign-Up</a></li>
+            <li><a href="/users/login">Login</a></li>
+        <% } %>
+        </ul>
+    </div>
+  </div>
+</nav>
