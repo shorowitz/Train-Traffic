@@ -26,7 +26,13 @@
              <button id="submit" type="submit" >Submit Edit!</button>
           </div>
       </form>
-      <button><a href="#">DELETE</a></button>
+      <form action="/trains/stops/new/<%=data[0].id%>?_method=DELETE" method="post">
+           <div>
+             <label for="submit">Submit</label>
+             <button id="submit" type="submit" > DELETE!</button>
+          </div>
+      </form>
+      
 
   </body>
 </html>

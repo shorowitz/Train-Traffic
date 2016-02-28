@@ -161,22 +161,34 @@ function showOneComment (req, res,next) {
         console.log(err);
         return res.status(500).json({success: false, data: err});
       }
-      var query = client.query("UPDATE comments SET note=$1 WHERE id=$2 RETURNING note;", [req.body.note, req.params.cid],
+      var query = client.query("UPDATE comments SET note=$1 WHERE id=$2;", [req.body.note, req.params.cid],
       function(err, results){
           done();
          if(err) {
           return console.error('error running query', err);
          }
-         console.log(req.body.note)
-         console.log(results.rows)
          next();
-
        });
-
      })
    };
 
-
+   function deleteComment (req, res, next) {
+    pg.connect(config, function(err, client, done){
+     if(err){
+       done();
+       console.log(err);
+       return res.status(500).json({success: false, data: err});
+     }
+      var query = client.query("DELETE FROM comments WHERE id=$1;", [req.params.cid],
+      function(err, results){
+         done();
+        if(err) {
+         return console.error('error running query', err);
+        }
+        next();
+      });
+    })
+  }
 
 module.exports.showTrains = showTrains;
 module.exports.showStops = showStops;
@@ -184,3 +196,4 @@ module.exports.showAllComments = showAllComments;
 module.exports.createComment = createComment;
 module.exports.showOneComment = showOneComment;
 module.exports.editComment = editComment;
+module.exports.deleteComment = deleteComment;

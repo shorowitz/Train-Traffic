@@ -44,11 +44,11 @@ trains.put('/stops/new/:cid', trainsDB.editComment, function(req, res) {
   res.redirect('./' + req.params.cid);
 })
 
+trains.delete('/stops/new/:cid', trainsDB.deleteComment, function(req, res) {
+  res.redirect('/');
+})
 
 
-
-
-// trains.get('/stops/:id/new', )
 
 
 module.exports = trains;
