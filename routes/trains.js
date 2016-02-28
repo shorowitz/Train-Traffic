@@ -41,7 +41,7 @@ trains.get('/stops/new/:cid', trainsDB.showOneComment, function(req, res) {
 })
 
 trains.put('/stops/new/:cid', trainsDB.editComment, function(req, res) {
-  res.redirect('./' +req.params.cid);
+  res.redirect('./' + req.params.cid);
 })
 
 

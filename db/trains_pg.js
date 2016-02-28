@@ -67,7 +67,7 @@ function showAllComments(req,res,next){
       GROUP BY stops.id, stops.name, users.username, comments.posted, comments.note
       ORDER BY comments.posted DESC;`, [req.params.id],
      function(err, results){
-       console.log(results.rows, 'this is first query')
+      //  console.log(results.rows, 'this is first query')
       done();
       if(err) {
        return console.error('error running query', err);
@@ -76,12 +76,12 @@ function showAllComments(req,res,next){
       // console.log(res.rows);
 
       if (res.rows.length === 0) {
-        console.log('im null');
+        // console.log('im null');
         var query2 = client.query(`SELECT id, name
         FROM stops
         WHERE id = $1`, [req.params.id],
         function(err, results){
-          console.log(results.rows, 'this is second query')
+          // console.log(results.rows, 'this is second query')
          done();
          if(err) {
           return console.error('error running query', err);
@@ -148,7 +148,7 @@ function showOneComment (req, res,next) {
         return console.error('error running query', err);
        }
        res.rows = results.rows;
-       console.log(res.rows)
+      //  console.log(res.rows)
        next();
       });
     });
@@ -161,14 +161,18 @@ function showOneComment (req, res,next) {
         console.log(err);
         return res.status(500).json({success: false, data: err});
       }
-      var query = client.query('UPDATE comments SET note=$1 WHERE id=$2;', [req.body.note, req.params.id],
+      var query = client.query("UPDATE comments SET note=$1 WHERE id=$2 RETURNING note;", [req.body.note, req.params.cid],
       function(err, results){
-         done();
+          done();
          if(err) {
           return console.error('error running query', err);
          }
+         console.log(req.body.note)
+         console.log(results.rows)
          next();
+
        });
+
      })
    };
 
