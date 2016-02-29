@@ -4,31 +4,23 @@
     <%- include ../partials/head.html.ejs %>
   </head>
   <body>
-    <header class="header">
+    <header>
       <%- include ../partials/nav.html.ejs %>
     </header>
-      <div class="container">
-        <%- include ../partials/widget.html.ejs %>
+    <div class="container">
+      <%- include ../partials/widget.html.ejs %>
         <% if (user) {%>
           <div class="main">
-            <h1 id="logo"> STOPS </h1>
-            <div class="body-text">
-              <ul class="flex-container">
-          <% for(var i = 0; i < data.length; i++) { %>
-              <li class="flex-item"><a href="/trains/stops/<%= data[i].id %>"><%= data[i].name %></a></li>
-           <% } %>
-        <% } %>
-            </ul>
-      </article>
-      <aside class="aside aside-1">
-        <div class="widget">
-          <script type="text/javascript" src="http://www.mta.info/sites/all/libraries/mta_WidgetScripts/serviceStatusWidget.js"></script>
+            <h1 id="logo"><%= data[0].trains_name%> -Stops</h1>
+            <div class="stop container">
+              <% for(var i = 0; i < data.length; i++) { %>
+                <div class="stop-div">
+                  <p class="stop"><a href="/trains/stops/<%= data[i].id %>"><%= data[i].name %></a></p>
+                </div>
+              <% } %>
+            </div>
         </div>
-      </aside>
-      <aside class="aside aside-2">Aside 2
-      </aside>
-      <footer class="footer">Footer
-      </footer>
+        <% } %>
     </div>
   </body>
 </html>
