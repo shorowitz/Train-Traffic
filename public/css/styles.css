@@ -1,10 +1,20 @@
-.container {
-  justify-content: center;
+body {
+  font-family: 'Varela', sans-serif;
+  background-image: url("https://images.unsplash.com/photo-1417300628967-b6a9bb78bf31?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=0c18fbe8a5251e327d300e2ddaa56a41");
+  background-size: cover;
+  color: white;
+}
+.home {
+  font-weight: bold;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 20px;
+  align-self:flex-start;
 }
 
 .navigation {
   list-style: none;
   margin: 0;
+  margin-bottom: 20px;
   background: black;
   display: -webkit-box;
   display: -moz-box;
@@ -13,6 +23,7 @@
   display: flex;
   -webkit-flex-flow: row wrap;
   justify-content: flex-end;
+  align-items: center;
 }
 
 .navigation a {
@@ -20,10 +31,6 @@
   display: block;
   padding: 1em;
   color: white;
-}
-
-.navigation a:hover {
-  background: gray;
 }
 
 @media all and (max-width: 800px) {
@@ -37,21 +44,76 @@
     flex-flow: column wrap;
     padding: 0;
   }
-
-  .navigation a {
-    text-align: center;
-    padding: 10px;
-    border-top: 1px solid rgba(255, 255, 255, 0.3);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  }
-
-  .navigation li:last-of-type a {
-    border-bottom: none;
-  }
 }
 
+.container {
+  justify-content: center;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+  font-weight: bold;
+  text-align: center;
+}
 
-.home {
+#widget {
+  background-color: white;
+  position: absolute;
+  border: 4px solid black;
+  border-style: ridge;
+  left: 3%;
+  top: 15%;
+}
+
+#logo {
+  font-weight: bold;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 60px;
+}
+
+#main{
+  margin: 0 auto;
+   color: white;
+   font-size: 30px;
+  }
+
+.body-text {
+  width:500px;
+  text-align: center;
+  font-size: 18px;
+  background-color: #adb7c1;
+  border-radius: 60px;
+  color: black;
+  padding:10px;
+}
+
+.logout {
+  background-color: black;
+  color:white;
+}
+
+.login {
+  background-color: black;
+  color:white;
+  margin-top: 5px;
+}
+
+#legend {
+  font-size: 30px;
   font-weight: bold;
   font-family: 'Permanent Marker', cursive;
 }
+
+/*.form-group {
+  color: black;
+}*/
+
+#inputEmail {
+  color:black;
+}
+#inputPassword {
+  color:black;
+}*/
