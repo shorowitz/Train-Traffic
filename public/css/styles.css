@@ -85,9 +85,10 @@ body {
   text-align: center;
   font-size: 18px;
   background-color: #adb7c1;
-  border-radius: 60px;
+  border-radius: 30px;
   color: black;
   padding:10px;
+  opacity: 0.9;
 }
 
 .logout {
@@ -107,13 +108,39 @@ body {
   font-family: 'Permanent Marker', cursive;
 }
 
-/*.form-group {
-  color: black;
-}*/
-
 #inputEmail {
   color:black;
 }
+
 #inputPassword {
   color:black;
-}*/
+}
+
+.line-container {
+  display:flex;
+  justify-content: center;
+  text-align:center;
+  align-items: center;
+}
+
+.trains {
+  background-color:white;
+  border-radius:50%;
+  width:100px;
+  height:100px;
+  display:flex;
+  justify-content: center;
+  flex-flow:row;
+  margin:10px;
+  opacity: 0.7;
+  text-align:center;
+  align-items: center;
+}
+
+
+.lines a {
+  color: red;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: 'Permanent Marker', cursive;
+}

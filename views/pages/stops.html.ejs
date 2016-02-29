@@ -4,14 +4,16 @@
     <%- include ../partials/head.html.ejs %>
   </head>
   <body>
-    <div class="wrapper">
-      <header class="header">
-        <%- include ../partials/nav.html.ejs %>
-      </header>
-      <article class="main">
+    <header class="header">
+      <%- include ../partials/nav.html.ejs %>
+    </header>
+      <div class="container">
+        <%- include ../partials/widget.html.ejs %>
         <% if (user) {%>
-          <p>STOPS</p>
-            <ul class="flex-container">
+          <div class="main">
+            <h1 id="logo"> STOPS </h1>
+            <div class="body-text">
+              <ul class="flex-container">
           <% for(var i = 0; i < data.length; i++) { %>
               <li class="flex-item"><a href="/trains/stops/<%= data[i].id %>"><%= data[i].name %></a></li>
            <% } %>
