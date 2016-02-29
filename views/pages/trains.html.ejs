@@ -1,5 +1,5 @@
+<!DOCTYPE html>
 <html lang="en">
-<head>
   <head>
     <%- include ../partials/head.html.ejs %>
   </head>
@@ -7,22 +7,30 @@
     <header>
       <%- include ../partials/nav.html.ejs %>
     </header>
-    <div class="widget">
-      <script type="text/javascript" src="http://www.mta.info/sites/all/libraries/mta_WidgetScripts/serviceStatusWidget.js"></script>
-    </div>
-    <% if (!(user)) {%>
-      <div class="container">
-        <h1> Welcome! </h1>
-        <p>Sign-In or Sign-up for an account to view minute-by-minute updates at your train stop!</p>
+    <div class="container">
+      <%- include ../partials/widget.html.ejs %>
+      <% if (!(user)) {%>
+          <div id="main">
+            <p>WE ARE DELAYED DUE TO...</p>
+            <h1 id="logo"> TRAIN TRAFFIC </h1>
+          <div class="body-text">
+            <p>"Good Service" is relative.<br> Login or Sign-Up to post and get minute-by-minute updates on what's happening at your local stop. </p>
+          </div>
+        </div>
+      <% } %>
+
+      <% if (user) {%>
+        <div id="main">
+          <h1 id="logo">Subway Lines</h1>
+          <div class="line-container">
+            <% for(var i = 0; i < data.length; i++) { %>
+              <div class= "trains">
+                <h1 class="lines"><a href="/trains/<%= data[i].id %>"><%= data[i].name %></a></h1>
+              </div>
+            <% } %>
+          </div>
       </div>
-    <% } %>
-    <% if (user) {%>
-      <h1>Train Lines</h1>
-      <% for(var i = 0; i < data.length; i++) { %>
-
-             <h2><a href="/trains/<%= data[i].id %>"><%= data[i].name %></a></h2>
-
-         <% } %>
-    <% } %>
+      <% } %>
+    </div>
   </body>
 </html>

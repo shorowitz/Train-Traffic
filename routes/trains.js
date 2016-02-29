@@ -48,6 +48,12 @@ trains.delete('/stops/new/:cid', trainsDB.deleteComment, function(req, res) {
   res.redirect('/');
 })
 
+trains.delete('/logout', function(req, res) {
+  req.session.destroy(function(err){
+    res.redirect('/');
+  })
+})
+
 
 
 

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
   <head>
     <%- include ../partials/head.html.ejs %>
   </head>
@@ -8,30 +7,33 @@
     <header>
       <%- include ../partials/nav.html.ejs %>
     </header>
-    <div class="widget">
-      <script type="text/javascript" src="http://www.mta.info/sites/all/libraries/mta_WidgetScripts/serviceStatusWidget.js"></script>
-    </div>
+    <div class="container">
+      <%- include ../partials/widget.html.ejs %>
     <% if (data.length !== 0) {%>
-      <h1><%= data[0].name %></h1>
-      <% for(var i = 0; i < data.length; i++) { %>
-          <div id="comments" class="container">
-            <ul>
-             <li><%= data[i].username %></li>
-             <li><%= data[i].note %></li>
-             <li><%= data[i].posted %></li>
-           </ul>
-         </div>
-         <% } %>
-         <form action="/trains/stops/<%=data[0].id%>" method="post">
-           <div>
-             <label for="note">Comment</label>
-             <input type="text" name="note">
-             <label for="submit">Submit</label>
-             <button id="submit" type="submit" >Submit!</button>
-          </div>
-        </form>
+      <h1 id="logo"><%= data[0].name %></h1>
+        <div class="comment-container">
+          <form action="/trains/stops/<%=data[0].id%>" method="post">
+            <label for="note">Comment</label>
+            <input type="text" name="note">
+            <label for="submit">Submit</label>
+              <button id="submit" type="submit" >Submit!</button>
+          </form>
+
+        <% for(var i = 0; i < data.length; i++) { %>
+
+          <ul class="comments-list">
+            <li id="username"> <%= data[i].username %>   </li>
+            <li id="note"> <%= data[i].note %> </li>
+            <li id="time"> <%= data[i].posted %> </li>
+          </ul>
+
+      <% } %>
+      </div>
+    </div>
+
 
       <% } else { %>
+        <div class="main">
          <h1><%=stops[0].name %></h1>
            <form action="/trains/stops/<%=stops[0].id %>" method="post">
                 <div>

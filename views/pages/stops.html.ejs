@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
   <head>
     <%- include ../partials/head.html.ejs %>
   </head>
@@ -8,16 +7,20 @@
     <header>
       <%- include ../partials/nav.html.ejs %>
     </header>
-    <div class="widget">
-      <script type="text/javascript" src="http://www.mta.info/sites/all/libraries/mta_WidgetScripts/serviceStatusWidget.js"></script>
+    <div class="container">
+      <%- include ../partials/widget.html.ejs %>
+        <% if (user) {%>
+          <div class="main">
+            <h1 id="logo"><%= data[0].trains_name%> -Stops</h1>
+            <div class="stop container">
+              <% for(var i = 0; i < data.length; i++) { %>
+                <div class="stop-div">
+                  <p class="stop"><a href="/trains/stops/<%= data[i].id %>"><%= data[i].name %></a></p>
+                </div>
+              <% } %>
+            </div>
+        </div>
+        <% } %>
     </div>
-    <% if (user) {%>
-      <h1>STOPS</h1>
-      <% for(var i = 0; i < data.length; i++) { %>
-
-             <h2><a href="/trains/stops/<%= data[i].id %>"><%= data[i].name %></a></h2>
-
-         <% } %>
-    <% } %>
   </body>
 </html>

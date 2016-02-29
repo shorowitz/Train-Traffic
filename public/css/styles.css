@@ -1,7 +1,197 @@
-/*.navbar-nav {
-  display: inline;
+body {
+  font-family: 'Varela', sans-serif;
+  background-image: url("https://images.unsplash.com/photo-1417300628967-b6a9bb78bf31?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=0c18fbe8a5251e327d300e2ddaa56a41");
+  background-size: cover;
+  color: white;
+}
+.home {
+  font-weight: bold;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 20px;
+  align-self:flex-start;
 }
 
-li {
-  display: inline;
-}*/
+.navigation {
+  list-style: none;
+  margin: 0;
+  margin-bottom: 20px;
+  background: black;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.navigation a {
+  text-decoration: none;
+  display: block;
+  padding: 1em;
+  color: white;
+}
+
+@media all and (max-width: 800px) {
+  .navigation {
+    justify-content: space-around;
+  }
+}
+@media all and (max-width: 600px) {
+  .navigation {
+    -webkit-flex-flow: column wrap;
+    flex-flow: column wrap;
+    padding: 0;
+  }
+}
+
+.container {
+  justify-content: center;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+  font-weight: bold;
+  text-align: center;
+}
+
+#widget {
+  background-color: white;
+  position: absolute;
+  border: 4px solid black;
+  border-style: ridge;
+  left: 3%;
+  top: 20%;
+}
+
+#logo {
+  font-weight: bold;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 60px;
+}
+
+#main{
+  margin: 0 auto;
+   color: white;
+   font-size: 30px;
+  }
+
+.body-text {
+  width:500px;
+  text-align: center;
+  font-size: 18px;
+  background-color: #adb7c1;
+  border-radius: 30px;
+  color: black;
+  padding:10px;
+  opacity: 0.9;
+}
+
+.logout {
+  background-color: black;
+  color:white;
+}
+
+.login {
+  background-color: black;
+  color:white;
+  margin-top: 5px;
+}
+
+#legend {
+  font-size: 30px;
+  font-weight: bold;
+  font-family: 'Permanent Marker', cursive;
+}
+
+#inputEmail {
+  color:black;
+}
+
+#inputPassword {
+  color:black;
+}
+
+.line-container {
+  display:flex;
+  justify-content: center;
+  text-align:center;
+  align-items: center;
+}
+
+.trains {
+  background-color:white;
+  border-radius:50%;
+  width:100px;
+  height:100px;
+  display:flex;
+  justify-content: center;
+  flex-flow:row;
+  margin:10px;
+  opacity: 0.7;
+  text-align:center;
+  align-items: center;
+}
+
+
+.lines a {
+  color: red;
+  text-decoration: none;
+  font-weight: bold;
+  /*font-family: 'Permanent Marker', cursive;*/
+}
+
+#trains-button {
+  background-color: black;
+  font-size:50px;
+}
+
+#trains-button a {
+  text-decoration: none;
+  color: white;
+}
+
+.stop {
+  width: 700px;
+}
+
+.stop-div {
+  display:flex;
+  width:75px;
+  height: 75px;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 14px;
+  background-color: white;
+  border-radius: 30px;
+  color: black;
+  padding:10px;
+  opacity: 0.9;
+  align-items:center;
+  margin: 10px;
+  border: 1px solid red;
+}
+
+.stop-div a{
+  text-decoration: none;
+  color: black;
+}
+
+.comment-container {
+  background-color: gray;
+  width:600px;
+  justify-content: center;
+}
+
+.comments-list {
+  list-style: none;
+  display:inline-block;
+}
+
+.comment {
+ width: 500px;
+}

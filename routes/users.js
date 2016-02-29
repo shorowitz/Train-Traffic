@@ -11,11 +11,11 @@ users.post('/', usersDB.createUser, function(req, res){
 
 // users.route('/')
 users.get('/new', function(req, res) {
-  res.render('pages/new.html.ejs')
+  res.render('pages/new.html.ejs', {user: req.session.user})
 })
 
 users.get('/login', function(req, res) {
-  res.render('pages/login.html.ejs');
+  res.render('pages/login.html.ejs', {user: req.session.user});
 })
 
 users.post('/login', usersDB.loginUser, function(req, res) {
