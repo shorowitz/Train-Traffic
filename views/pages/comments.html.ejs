@@ -10,39 +10,39 @@
     <div class="container">
       <%- include ../partials/widget.html.ejs %>
     <% if (data.length !== 0) {%>
-      <h1 id="logo"><%= data[0].name %></h1>
-        <div class="comment-container">
+    <div class="comment-container">
+      <h1><%= data[0].name %></h1>
           <form action="/trains/stops/<%=data[0].id%>" method="post">
             <label for="note">Comment</label>
-            <input type="text" name="note">
-            <label for="submit">Submit</label>
-              <button id="submit" type="submit" >Submit!</button>
+            <input type="text" name="note" class="input" id="comment">
+            <label for="submit"></label>
+              <button id="submit" type="submit" class="login">Submit!</button>
           </form>
 
         <% for(var i = 0; i < data.length; i++) { %>
 
-          <ul class="comments-list">
-            <li id="username"> <%= data[i].username %>   </li>
-            <li id="note"> <%= data[i].note %> </li>
-            <li id="time"> <%= data[i].posted %> </li>
-          </ul>
+        <div class="one-comment">
+            <a href="#" id="username"> <%= data[i].username %></a><br>
+            <a id="note"> <%= data[i].note %> </a><br>
+            <a id="time"> <%= data[i].posted %> </a>
+        </div>
 
       <% } %>
       </div>
-    </div>
+
 
 
       <% } else { %>
-        <div class="main">
+        <div class="comment-container">
          <h1><%=stops[0].name %></h1>
            <form action="/trains/stops/<%=stops[0].id %>" method="post">
-                <div>
                   <label for="note">Comment</label>
-                  <input type="text" name="note">
-                  <label for="submit">Submit</label>
-                  <button id="submit" type="submit" >Submit!</button>
-               </div>
+                  <input type="text" name="note" id="comment" class="input">
+                  <label for="submit"></label>
+                  <button id="submit" type="submit" class="login">Submit!</button>
              </form>
+            </div>
          <% } %>
+       </div>
   </body>
 </html>

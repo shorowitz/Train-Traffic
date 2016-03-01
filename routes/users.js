@@ -6,7 +6,7 @@ var session = require('express-session');
 
 
 users.post('/', usersDB.createUser, function(req, res){
-  res.redirect('/');
+  res.redirect('/users/login');
 })
 
 // users.route('/')
