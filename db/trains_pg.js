@@ -90,7 +90,7 @@ function showAllComments(req,res,next){
         //  console.log(res.stops[0].name);
          next();
       })
-    } else {
+    } else { //Dan Lawrence helped me debug and figure out need for this else statement
       next();
     };
 

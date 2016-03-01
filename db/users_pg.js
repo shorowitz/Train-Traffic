@@ -8,7 +8,7 @@ var config = "postgres://" + process.env.DB_USER + ":" + process.env.DB_PASS + "
 var bcrypt = require('bcrypt');
 var salt = bcrypt.genSaltSync(10);
 var session = require('express-session');
-
+//referenced Colin Hart auth-starter code for functions below
 
 function loginUser(req, res, next) {
     var email = req.body.email;
