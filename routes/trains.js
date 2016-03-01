@@ -4,14 +4,15 @@ var bodyParser = require('body-parser');
 var trainsDB = require('../db/trains_pg');
 var session = require('express-session');
 
-trains.use(function(req, res, next) {
-  console.log(req.session)
-  if (req.session.user) {
-    next();
-  } else {
-    res.status(401).json({succes: false, data: 'not logged in'})
-  };
-})
+//DONT NEED THIS NOW BECAUSE MY TRAINS VIEW TAKES CARE OF SAME THING
+// trains.use(function(req, res, next) {
+//   console.log(req.session)
+//   if (req.session.user) {
+//     next();
+//   } else {
+//     res.status(401).json({success: false, data: 'not logged in'})
+//   };
+// })
 
 
 
@@ -45,7 +46,7 @@ trains.put('/stops/new/:cid', trainsDB.editComment, function(req, res) {
 })
 
 trains.delete('/stops/new/:cid', trainsDB.deleteComment, function(req, res) {
-  res.redirect('/');
+  res.redirect('/trains');
 })
 
 trains.delete('/logout', function(req, res) {

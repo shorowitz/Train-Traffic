@@ -83,12 +83,12 @@ body {
 .body-text {
   width:500px;
   text-align: center;
-  font-size: 18px;
-  background-color: #adb7c1;
+  font-size: 24px;
+  font-kerning: auto;
+  background-color: gray;
   border-radius: 30px;
-  color: black;
+  color: white;
   padding:10px;
-  opacity: 0.9;
 }
 
 .logout {
@@ -132,7 +132,6 @@ body {
   justify-content: center;
   flex-flow:row;
   margin:10px;
-  opacity: 0.7;
   text-align:center;
   align-items: center;
 }
@@ -156,7 +155,7 @@ body {
 }
 
 .stop {
-  width: 700px;
+  width: 650px;
 }
 
 .stop-div {
@@ -166,25 +165,28 @@ body {
   border-radius: 50%;
   text-align: center;
   font-size: 14px;
-  background-color: white;
+  background-color: gray;
   border-radius: 30px;
-  color: black;
+  color: white;
   padding:10px;
-  opacity: 0.9;
   align-items:center;
   margin: 10px;
-  border: 1px solid red;
 }
 
 .stop-div a{
   text-decoration: none;
-  color: black;
+  color: white;
 }
 
 .comment-container {
   background-color: gray;
   width:600px;
   justify-content: center;
+
+}
+
+.comment-container a {
+  font-size: 22px;
 }
 
 .comments-list {
@@ -194,4 +196,47 @@ body {
 
 .comment {
  width: 500px;
+}
+
+.main-signup {
+  width: 500px;
+  background-color: gray;
+}
+
+.input {
+  color: black;
+}
+
+#comment {
+  width: 500px;
+}
+
+#username {
+  font-family: 'Permanent Marker', cursive;
+  color: black;
+  font-weight: bolder;
+}
+
+#time {
+  color: black;
+  opacity: 0.8;
+}
+
+.one-comment {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  border-bottom: 1px solid black;
+}
+
+.login a {
+  text-decoration: none;
+  color: white;
+}
+
+#this-post {
+  margin-bottom: 30px;
+}
+
+.edit {
+  margin-bottom: 30px;
 }

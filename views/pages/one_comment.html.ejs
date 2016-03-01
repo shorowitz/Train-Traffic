@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
   <head>
     <%- include ../partials/head.html.ejs %>
   </head>
@@ -8,31 +7,32 @@
     <header>
       <%- include ../partials/nav.html.ejs %>
     </header>
-    <div class="widget">
-      <script type="text/javascript" src="http://www.mta.info/sites/all/libraries/mta_WidgetScripts/serviceStatusWidget.js"></script>
-    </div>
-      <h1><%= data[0].name %></h1>
-      <ul>
-        <li><%= data[0].username %></li>
-        <li><%= data[0].note %></li>
-        <li><%= data[0].posted %></li>
-      </ul>
-      <button><a href="/trains/stops/<%= data[0].stop_id %>">POST IT!</a></button>
+    <div class="container">
+      <%- include ../partials/widget.html.ejs %>
+      <div class="comment-container">
+        <h1><%= data[0].name %></h1>
+        <div class="one-comment">
+          <a href="#" id="username"> <%= data[0].username %></a><br>
+          <a id="note"> <%= data[0].note %> </a><br>
+          <a id="time"> <%= data[0].posted %> </a>
+        </div>
+        <button class="login" id="this-post"><a href="/trains/stops/<%= data[0].stop_id %>">Post It</a></button>
       <form action="/trains/stops/new/<%=data[0].id%>?_method=PUT" method="post">
            <div>
              <label for="note">Comment</label>
-             <input type="text" name="note" value="<%=data[0].note %>">
-             <label for="submit">Submit</label>
-             <button id="submit" type="submit" >Submit Edit!</button>
+             <input type="text" name="note" value="<%=data[0].note %>" id="comment" class="input">
+             <label for="submit"></label>
+             <button id="submit" type="submit" class="login edit">Submit Edit</button>
           </div>
       </form>
       <form action="/trains/stops/new/<%=data[0].id%>?_method=DELETE" method="post">
            <div>
-             <label for="submit">Submit</label>
-             <button id="submit" type="submit" > DELETE!</button>
+             <label for="submit"></label>
+             <a> Nevermind, the train is here </a></br>
+             <button id="submit" type="submit" class="login edit">DELETE!</button>
           </div>
       </form>
-      
+
 
   </body>
 </html>
