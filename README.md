@@ -25,11 +25,11 @@ New Yorkers rely on the subway to get everywhere and anywhere. They also rely on
 * As a registered user, I want to be able to edit my short bio on my profile page [STETCH GOAL]
 * As a registered user, I want to be able to see my username and a link to my profile associated with my posted comment [STRETCH GOAL]
 
-![alt tag](ERD.png)
-![alt tag](Home.jpg)
-![alt tag](Signup.jpg)
-![alt tag](Signin.jpg)
-![alt tag](Trains.jpg)
-![alt tag](Stops.jpg)
-![alt tag](ThisStop.jpg)
-![alt tag](edComment.jpg)
+![alt tag](/documentation/ERD.png)
+![alt tag](/documentation/Home.jpg)
+![alt tag](/documentation/Signup.jpg)
+![alt tag](/documentation/Signin.jpg)
+![alt tag](/documentation/Trains.jpg)
+![alt tag](/documentation/Stops.jpg)
+![alt tag](/documentation/ThisStop.jpg)
+![alt tag](/documentation/edComment.jpg)
